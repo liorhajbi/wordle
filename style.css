@@ -1,0 +1,41 @@
+.button{
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-bottom: 0.875rem;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    padding: 0.5rem 1rem;
+    box-shadow: black;
+    background: darksalmon;
+    border-color: antiquewhite;
+    color: aliceblue;
+    cursor: pointer;
+    backface-visibility: hidden;
+    border-radius: 0.25rem;
+    display: inline-block;
+    font-weight: 400;
+    text-align: left;
+}
+.input{
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    padding: 0.5rem 1rem;
+    font-weight: 400;
+    text-align: left;
+    width: 15px;
+}
+.box{
+    border: 3px solid black;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-left: 0.375rem;
+    margin-right: 0.375rem;
+    padding: 20px;
+    font-weight: 400;
+    text-align: left;
+    width: 15%;
+    height: 20px;
+
+}
