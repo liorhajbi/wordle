@@ -13,15 +13,21 @@ function lettersToTextBox(string) {
      box5 = document.getElementById("4").innerText;
     if (box1 === "") {
         document.getElementById("0").innerText = string;
+        lastLetter = "0"
     } else if (box2 === "") {
         document.getElementById("1").innerText = string;
+        lastLetter = "1"
     } else if (box3 === "") {
         document.getElementById("2").innerText = string;
+        lastLetter = "2"
     } else if (box4 === "") {
         document.getElementById("3").innerText = string;
+        lastLetter = "3"
     } else if (box5 === "") {
         document.getElementById("4").innerText = string;
+        lastLetter = "4"
     }
+
 }
 
 function main () {
@@ -40,7 +46,7 @@ function main () {
     for (j=0;j<5; j++){
         ifHave=true
         while (ifHave && j<5){
-             ifHave =ifLocationRight(chosenWord,wordInput,wordInput.charAt(j))
+            ifHave =ifLocationRight(chosenWord,wordInput,wordInput.charAt(j))
             if (ifHave){
                 alert(wordInput.charAt(j) + " " + "קיים במקום")
                 if (j===4){
@@ -64,6 +70,13 @@ function main () {
     }
 
 
+
+}
+function toDelete () {
+    document.getElementById(lastLetter).innerText = "";
+    newNumber =Number(lastLetter)
+    newNumber= newNumber-1
+    lastLetter = newNumber.toString()
 
 }
 
