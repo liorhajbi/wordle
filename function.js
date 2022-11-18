@@ -10,6 +10,7 @@ id2 = "2"
 id3 = "3"
 id4 = "4"
 function lettersToTextBox(string) {
+    flag=false
     box1 = document.getElementById(id0).innerText;
     box2 = document.getElementById(id1).innerText;
     box3 = document.getElementById(id2).innerText;
@@ -43,8 +44,7 @@ function addFive(stringId){
 
 
 function main () {
-
-
+    flag =true
     if (lastLetter === id4) {
         id0=addFive(id0)
         id1=addFive(id1)
@@ -62,6 +62,7 @@ function main () {
     if (chosenWord === wordInput) {
         alert("very good")
         return;
+
         //ניצחון , הכל ירוק
     }
     for (j=0;j<5; j++){
@@ -94,10 +95,17 @@ function main () {
 
 }
 function toDelete () {
+    if (flag===true){
+        return
+    }
+
     document.getElementById(lastLetter).innerText = "";
-    newNumber =Number(lastLetter)
-    newNumber= newNumber-1
-    lastLetter = newNumber.toString()
+    if (lastLetter !== id0) {
+        newNumber =Number(lastLetter)
+        newNumber= newNumber-1
+        lastLetter = newNumber.toString()
+    }
+
 
 }
 
