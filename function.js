@@ -1,5 +1,5 @@
 function choseWord(){
-    let words = ["איפור","מיטות","סוודר","בקבוק","מברשת","סירים","מחברת","עפרון","מקלדת","טלפון","תמונה","כוסות","חליפה"
+    let words = ["איפור","מיטות","מקלחת","קליפס","מברשת","בוקסה","מחברת","עפרון","מקלדת","טלפון","תמונה","מכחול","חליפה"
         ,"כותנה","שולחן","ספרים","שמיכה","מנורה","מחליק","פרחים"]
     chosenWord =words[(Math.random() *19).toFixed()]
     document.getElementById("chosen word").innerText= chosenWord;
@@ -42,8 +42,19 @@ function addFive(stringId){
     return stringId
 }
 
+locationOfLetter = 0
 
 function main () {
+    let wordInput = box1 + box2 + box3 + box4 + box5;
+    if (chosenWord === wordInput) {
+        document.getElementById(id0).style.background = "green";
+        document.getElementById(id1).style.background = "green";
+        document.getElementById(id2).style.background = "green";
+        document.getElementById(id3).style.background = "green";
+        document.getElementById(id4).style.background = "green";
+        alert("כל הכבוד!! ניצחת!!")
+
+    }
     flag =true
     if (lastLetter === id4) {
         id0=addFive(id0)
@@ -53,43 +64,57 @@ function main () {
         id4=addFive(id4)
     }
     if (box5 === "") {
-        alert("return")
+        return;
+    }
+    if (document.getElementById(locationOfLetter).innerText===""){
         return;
     }
 
-    let wordInput = box1 + box2 + box3 + box4 + box5;
-    alert(wordInput)
-    if (chosenWord === wordInput) {
-        alert("very good")
-        return;
-
-        //ניצחון , הכל ירוק
-    }
-    for (j=0;j<5; j++){
-        ifHave=true
-        while (ifHave && j<5){
-            ifHave =ifLocationRight(chosenWord,wordInput,wordInput.charAt(j))
-            if (ifHave){
-                alert(wordInput.charAt(j) + " " + "קיים במקום")
-                if (j===4){
-                    ifHave =false
+    for (j=0;j<5; j++) {
+        ifHave = true
+        while (ifHave && j < 5) {
+            ifHave = ifLocationRight(chosenWord, wordInput, wordInput.charAt(j))
+            if (ifHave) {
+                document.getElementById(locationOfLetter).style.background = "green";
+                letterToDraw = document.getElementById(locationOfLetter).innerText;
+                document.getElementById(letterToDraw).style.background = "green";
+                locationOfLetter++
+                if (j === 4) {
+                    ifHave = false
                     return;
                 }
                 if (j < 4) {
                     j++
                 }
             }
-
-            else {
-                ifHave =false
-            }
-
         }
+
+
         let ifExist2 = isExistLetter(chosenWord,wordInput.charAt(j))
         if (ifExist2) {
-            alert(wordInput.charAt(j) + "  " + "קיים לא במקום")
+            document.getElementById(locationOfLetter).style.background = "yellow";
+            letterToDraw = document.getElementById(locationOfLetter).innerText;
+            document.getElementById(letterToDraw).style.background = "yellow";
+
+            locationOfLetter++
+
+        }
+        else {
+            document.getElementById(locationOfLetter).style.background = "grey";
+            letterToDraw = document.getElementById(locationOfLetter).innerText;
+            document.getElementById(letterToDraw).style.background = "grey";
+
+            ifHave =false
+            locationOfLetter++
         }
     }
+    if ((locationOfLetter + 5) === "" ){
+        return;
+    }
+
+
+
+
 
 
 
