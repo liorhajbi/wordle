@@ -47,13 +47,14 @@ locationOfLetter = 0
 function main () {
     let wordInput = box1 + box2 + box3 + box4 + box5;
     if (chosenWord === wordInput) {
-        document.getElementById(id0).style.background = "green";
-        document.getElementById(id1).style.background = "green";
-        document.getElementById(id2).style.background = "green";
-        document.getElementById(id3).style.background = "green";
-        document.getElementById(id4).style.background = "green";
+        document.getElementById(id0).style.background = "#7cfc00";
+        document.getElementById(id1).style.background = "#7cfc00";
+        document.getElementById(id2).style.background = "#7cfc00";
+        document.getElementById(id3).style.background = "#7cfc00";
+        document.getElementById(id4).style.background = "#7cfc00";
+        flag=true
         alert("כל הכבוד!! ניצחת!!")
-
+        return;
     }
     flag =true
     if (lastLetter === id4) {
@@ -73,11 +74,11 @@ function main () {
     for (j=0;j<5; j++) {
         ifHave = true
         while (ifHave && j < 5) {
-            ifHave = ifLocationRight(chosenWord, wordInput, wordInput.charAt(j))
+            ifHave = ifLocationRight(chosenWord, wordInput, j)
             if (ifHave) {
-                document.getElementById(locationOfLetter).style.background = "green";
+                document.getElementById(locationOfLetter).style.background =  "#7cfc00";
                 letterToDraw = document.getElementById(locationOfLetter).innerText;
-                document.getElementById(letterToDraw).style.background = "green";
+                document.getElementById(letterToDraw).style.background = "#7cfc00";
                 locationOfLetter++
                 if (j === 4) {
                     ifHave = false
@@ -100,9 +101,9 @@ function main () {
 
         }
         else {
-            document.getElementById(locationOfLetter).style.background = "grey";
+            document.getElementById(locationOfLetter).style.background = "#808080";
             letterToDraw = document.getElementById(locationOfLetter).innerText;
-            document.getElementById(letterToDraw).style.background = "grey";
+            document.getElementById(letterToDraw).style.background = "#808080";
 
             ifHave =false
             locationOfLetter++
@@ -134,11 +135,10 @@ function toDelete () {
 
 }
 
-    function ifLocationRight (stringRandom , stringEnter,char){
+    function ifLocationRight (stringRandom , stringEnter,k){
         let ifTrue = false
-        let index1 = stringEnter.indexOf(char)
-        let index2 = stringRandom.indexOf(char)
-
+        let index1 = stringEnter.charAt(k)
+        let index2 = stringRandom.charAt(k)
         if (index1 === index2){
             ifTrue = true
         }
