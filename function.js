@@ -43,8 +43,11 @@ function addFive(stringId){
 }
 
 locationOfLetter = 0
+count = 1
 
 function main () {
+    alert(count)
+    window.prompt("ggggg")
     let wordInput = box1 + box2 + box3 + box4 + box5;
     if (chosenWord === wordInput) {
         document.getElementById(id0).style.background = "#7cfc00";
@@ -53,8 +56,13 @@ function main () {
         document.getElementById(id3).style.background = "#7cfc00";
         document.getElementById(id4).style.background = "#7cfc00";
         flag=true
-        alert("כל הכבוד!! ניצחת!!")
+        alert("כל הכבוד!! ניצחת ב " + count + " ניסיונות ")
         return;
+    }
+    let lastBox = document.getElementById("29").innerText
+    if (flag===false && lastBox !== "") {
+        alert("you failed")
+
     }
     flag =true
     if (lastLetter === id4) {
@@ -63,6 +71,7 @@ function main () {
         id2=addFive(id2)
         id3=addFive(id3)
         id4=addFive(id4)
+        count++
     }
     if (box5 === "") {
         return;
@@ -112,12 +121,6 @@ function main () {
     if ((locationOfLetter + 5) === "" ){
         return;
     }
-
-
-
-
-
-
 
 }
 function toDelete () {
