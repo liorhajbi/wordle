@@ -1,8 +1,11 @@
 function choseWord(){
-    let words = ["איפור","מיטות","מקלחת","קליפס","מברשת","בוקסה","מחברת","עפרון","מקלדת","טלפון","תמונה","מכחול","חליפה"
-        ,"כותנה","שולחן","ספרים","שמיכה","מנורה","מחליק","פרחים"]
-    chosenWord =words[(Math.random() *19).toFixed()]
+    const words = ["איפור","מיטות","מקלחת","קליפס","מברשת","בוקסה","מחברת","עפרון","מקלדת","טלפון","תמונה","מכחול","חליפה"
+        ,"כותנה","שולחן","ספרים","שמיכה","מנורה","מחליק","פרחים"];
+    // const words = ["אבגדה"];
+
+    chosenWord =words[(Math.random() *words.length).toFixed()]
     document.getElementById("chosen word").innerText= chosenWord;
+
 }
 id0 = "0"
 id1 = "1"
@@ -46,22 +49,23 @@ locationOfLetter = 0
 count = 1
 
 function main () {
-    alert(count)
-    window.prompt("ggggg")
-    let wordInput = box1 + box2 + box3 + box4 + box5;
+    const wordInput = box1 + box2 + box3 + box4 + box5;
     if (chosenWord === wordInput) {
         document.getElementById(id0).style.background = "#7cfc00";
         document.getElementById(id1).style.background = "#7cfc00";
         document.getElementById(id2).style.background = "#7cfc00";
         document.getElementById(id3).style.background = "#7cfc00";
         document.getElementById(id4).style.background = "#7cfc00";
-        flag=true
-        alert("כל הכבוד!! ניצחת ב " + count + " ניסיונות ")
+        flag=true;
+        document.getElementById("result").innerText = "כל הכבוד!! ניצחת ב " + count + " ניסיונות ";
+        document.getElementById("result").style.color = ""
         return;
     }
     let lastBox = document.getElementById("29").innerText
     if (flag===false && lastBox !== "") {
-        alert("you failed")
+        document.getElementById("result").innerText = "נכשלת!" ;
+        document.getElementById("result").style.color = "red"
+
 
     }
     flag =true
@@ -86,7 +90,7 @@ function main () {
             ifHave = ifLocationRight(chosenWord, wordInput, j)
             if (ifHave) {
                 document.getElementById(locationOfLetter).style.background =  "#7cfc00";
-                letterToDraw = document.getElementById(locationOfLetter).innerText;
+                 letterToDraw = document.getElementById(locationOfLetter).innerText;
                 document.getElementById(letterToDraw).style.background = "#7cfc00";
                 locationOfLetter++
                 if (j === 4) {
@@ -140,8 +144,8 @@ function toDelete () {
 
     function ifLocationRight (stringRandom , stringEnter,k){
         let ifTrue = false
-        let index1 = stringEnter.charAt(k)
-        let index2 = stringRandom.charAt(k)
+        const index1 = stringEnter.charAt(k)
+        const index2 = stringRandom.charAt(k)
         if (index1 === index2){
             ifTrue = true
         }
