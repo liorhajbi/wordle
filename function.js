@@ -56,12 +56,6 @@ function main () {
             id0++
 
         }
-
-        // document.getElementById(id0).style.background = "#7cfc00";
-        // document.getElementById(id1).style.background = "#7cfc00";
-        // document.getElementById(id2).style.background = "#7cfc00";
-        // document.getElementById(id3).style.background = "#7cfc00";
-        // document.getElementById(id4).style.background = "#7cfc00";
         flag=true;
         document.getElementById("result").innerText = "כל הכבוד!! ניצחת ב " + count + " ניסיונות ";
         document.getElementById("result").style.color = "purple"
