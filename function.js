@@ -51,14 +51,20 @@ count = 1
 function main () {
     const wordInput = box1 + box2 + box3 + box4 + box5;
     if (chosenWord === wordInput) {
-        document.getElementById(id0).style.background = "#7cfc00";
-        document.getElementById(id1).style.background = "#7cfc00";
-        document.getElementById(id2).style.background = "#7cfc00";
-        document.getElementById(id3).style.background = "#7cfc00";
-        document.getElementById(id4).style.background = "#7cfc00";
+        for (let k=0; k<5; k++) {
+            document.getElementById(id0).style.background = "#7cfc00";
+            id0++
+
+        }
+
+        // document.getElementById(id0).style.background = "#7cfc00";
+        // document.getElementById(id1).style.background = "#7cfc00";
+        // document.getElementById(id2).style.background = "#7cfc00";
+        // document.getElementById(id3).style.background = "#7cfc00";
+        // document.getElementById(id4).style.background = "#7cfc00";
         flag=true;
         document.getElementById("result").innerText = "כל הכבוד!! ניצחת ב " + count + " ניסיונות ";
-        document.getElementById("result").style.color = ""
+        document.getElementById("result").style.color = "purple"
         return;
     }
     let lastBox = document.getElementById("29").innerText
